@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://Utkrisht123:Utkrisht123@musixon.iol7jty.mongodb.net/?retryWrites=true&w=majority",
+    "jwtsecret": "Trinity"
+}
