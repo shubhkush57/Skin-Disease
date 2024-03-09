@@ -19,7 +19,7 @@ router.post(
     ).isLength({ min: 6 }),
   ],
   async (req, res) => {
-    console.log("Button clicked");
+    console.log("are you coming here");
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });

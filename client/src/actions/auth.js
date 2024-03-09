@@ -18,7 +18,7 @@ import {
     }
   
     try {
-      const res = await axios.get('/api/auth');
+      const res = await axios.get('http://localhost:5000/api/auth');
       dispatch({
         type: USER_LOADED,
         payload: res.data,
@@ -43,7 +43,7 @@ import {
       try {
         console.log("Entering or not");
         // error bol raha h..... let's see what we can do...
-        const res = await axios.post('/api/users', body, config);
+        const res = await axios.post('http://localhost:5000/api/users', body, config);
         console.log("Lets eee");
         dispatch({
           type: REGISTER_SUCCESS,
@@ -70,7 +70,7 @@ import {
     };
     const body = JSON.stringify({ email, password });
     try {
-      const res = await axios.post('/api/auth', body, config);
+      const res = await axios.post('http://localhost:5000/api/auth', body, config);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
