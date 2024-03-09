@@ -12,7 +12,6 @@ import store from "./store";
 import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./utils/PrivateRoute";
 import { connect } from "react-redux";
-import Sidebar from "./components/layout/Sidebar";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
