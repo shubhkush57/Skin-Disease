@@ -14,12 +14,12 @@ app.use(cors());
 
 app.get('/', (req, res) => res.send('API running'));
 let model;
-const PORT = 8000;
+const PORT = process.env.PORT || 5000;
 // to predict the model's output we have to put the image into this which wil lead to the final 
 // output and then we have to send the reposnse...
 
-app.use('/api/users', require('./routes/users'));
-app.use('/api/auth', require('./routes/auth'));
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
 
 
 

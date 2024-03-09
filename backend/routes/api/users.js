@@ -4,9 +4,9 @@ const { check, validationResult } = require('express-validator');
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../models/Users');
+const User = require('../../models/Users');
 const config = require('config');
-const auth = require('../middleware/auth');
+const auth = require('../../middleware/auth');
 
 router.post(
   '/',
@@ -19,6 +19,7 @@ router.post(
     ).isLength({ min: 6 }),
   ],
   async (req, res) => {
+    console.log("Button clicked");
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -60,6 +61,7 @@ router.post(
         }
       );
     } catch (err) {
+      console.log("Here is the error");
       console.log(err.message);
       res.status(500).send('Server error');
     }

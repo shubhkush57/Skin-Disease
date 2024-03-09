@@ -2,9 +2,11 @@ import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./index.css";
 import Navbar from "./components/layout/Navbar";
-import Landing from "./components/layout/Landing";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
+
+import Landing from "./components/layout/Landing";
+import Alert from "./components/layout/Alert";
 import { loadUser } from "./actions/auth";
 // redux
 import { Provider } from "react-redux";
@@ -29,8 +31,6 @@ const App = ({ isAuthenticated }) => {
 
           <div className='relative flex'>
 
-            <Sidebar />
-            {/* <div className="  h-[calc(100vh-72px)]   flex xl:flex-row flex-col-reverse"> */}
             <div className='flex-1 h-fit pb-40'>
               <Navbar />
 
@@ -44,7 +44,7 @@ const App = ({ isAuthenticated }) => {
 
                   {/*  after this*/}
                   <Route element={<PrivateRoute />}>
-                    <Route exact path='/dashboard' element={<Dashboard />} />
+                    {/**private routes we can start from here what we wanto  */}
                   </Route>
                 </Routes>
               </section>

@@ -50,7 +50,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                 <Header
                   heading="Signup to create an account"
                   paragraph="Already have an account? "
-                  linkName="SignIn"
+                  linkName="Login"
                   linkUrl="/login"
                 />
 
