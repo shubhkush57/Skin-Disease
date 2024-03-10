@@ -13,6 +13,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./utils/PrivateRoute";
+import Dashboard from "./components/dashboard/Dashboard";
 import { connect } from "react-redux";
 
 if (localStorage.token) {
@@ -45,6 +46,7 @@ const App = ({ isAuthenticated }) => {
                   {/*  after this*/}
                   <Route element={<PrivateRoute />}>
                     {/**private routes we can start from here what we wanto  */}
+                    <Route exact path='/dashboard' element={<Dashboard />} />
                   </Route>
                 </Routes>
               </section>

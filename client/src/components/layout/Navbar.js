@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 import { Transition } from '@headlessui/react';
-
+import appLogo  from '../../img/download.png';
 function Navbar({ auth: { isAuthenticated, loading }, logout }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -52,7 +52,7 @@ function Navbar({ auth: { isAuthenticated, loading }, logout }) {
                 <Link to="/">
                   <img
                     className='h-12 w-15'
-                    src='https://t3.ftcdn.net/jpg/04/54/66/12/360_F_454661277_NtQYM8oJq2wOzY1X9Y81FlFa06DVipVD.jpg'
+                    src={appLogo}
                     alt='Workflow'
                   />
                 </Link>

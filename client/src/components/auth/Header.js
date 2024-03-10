@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import applogo from '../../img/applogo.png'
+import applogo from '../../img/download.png'
 const Header= ( {
     heading,
     paragraph,

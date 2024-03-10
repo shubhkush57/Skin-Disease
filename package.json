@@ -3,6 +3,7 @@
     "bcryptjs": "^2.4.3",
     "config": "^3.3.9",
     "express-validator": "^6.15.0",
+    "get-image-data": "^5.0.0",
     "jsonwebtoken": "^9.0.0"
   }
 }
