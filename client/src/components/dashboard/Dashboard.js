@@ -22,10 +22,7 @@ const Dashboard = () => {
     <div>
       <Welcome />
       <Dataset />
-    <form onSubmit={handleFormSubmit}>
-      <input type="file" accept="image/*" onChange={handleImageChange} />
-      <button type="submit">Submit</button>
-    </form>
+    
   </div>
   )
 }
