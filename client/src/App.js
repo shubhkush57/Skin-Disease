@@ -15,6 +15,7 @@ import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./utils/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import { connect } from "react-redux";
+import Footer from "./components/layout/Footer";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -30,9 +31,9 @@ const App = ({ isAuthenticated }) => {
       <Router>
         <Fragment>
 
-          <div className='relative flex'>
+          <div className='flex flex-col min-h-screen'>
 
-            <div className='flex-1 h-fit pb-40'>
+            <div className='flex-1 h-fit pb-0'>
               <Navbar />
 
               <section>
@@ -51,6 +52,8 @@ const App = ({ isAuthenticated }) => {
                 </Routes>
               </section>
             </div>
+            <Footer />
+
           </div>
 
           

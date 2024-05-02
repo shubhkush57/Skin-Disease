@@ -40,8 +40,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
             <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
               <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-                class="w-full"
+                src="https://static.vecteezy.com/system/resources/previews/023/958/412/non_2x/cute-little-boy-wash-his-hands-in-the-sink-with-soap-for-cleanliness-and-healthcare-png.png"
+                class="w-1/2"
                 alt="Phone"
               />
             </div>

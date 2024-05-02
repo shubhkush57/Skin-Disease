@@ -1,16 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import appLogo  from '../../img/download.png';
+import landingPage from '../../img/landingPageImg.jpg'
 const Landing = () => {
   return (
 
 <section class="h-screen">
 <div class="container px-6 py-12 h-full">
   <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
-    <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
+    <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0 ml-10">
       <img
-        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-        class="w-full"
+        src={landingPage}
+        class="w-1/2"
         alt="Phone image"
       />
     </div>
