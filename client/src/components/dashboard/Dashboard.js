@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
-
-
+import Welcome from './Welcome';
+import Dataset from './Dataset';
 const Dashboard = () => {
   const [image, setImage] = useState(null)
 
@@ -20,6 +20,8 @@ const Dashboard = () => {
   }
   return (
     <div>
+      <Welcome />
+      <Dataset />
     <form onSubmit={handleFormSubmit}>
       <input type="file" accept="image/*" onChange={handleImageChange} />
       <button type="submit">Submit</button>
