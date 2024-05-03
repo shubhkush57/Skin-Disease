@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import Welcome from './Welcome';
 import Dataset from './Dataset';
+import Result from './Result';
 const Dashboard = () => {
   const [image, setImage] = useState(null)
 
@@ -20,9 +21,9 @@ const Dashboard = () => {
   }
   return (
     <div>
-      <Welcome />
-      <Dataset />
-    
+      <Welcome className = "mb-4"/>
+      <Dataset className = "mb-8"/>
+      <Result className = "mb-8"/>
   </div>
   )
 }
