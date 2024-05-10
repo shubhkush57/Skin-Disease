@@ -21,6 +21,7 @@ const handleUpload = async () => {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*'}
     } ;
+    console.clear();
     const formData = new FormData();
     formData['file'] = file.name;
     const body = JSON.stringify(formData);

@@ -5,15 +5,10 @@ const Welcome = () => {
     
   return (
   
-  
     <section
     className="relative bg-gradient-to-r from-blue-500 to-red-500 bg-cover bg-center bg-no-repeat"
     style={{backgroundImage: `url(${welcome})`}}
   >
-    {/* <div
-      class="absolute inset-0 bg-white/75 sm:bg-transparent sm:from-white/95 sm:to-white/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"
-    ></div> */}
-  
     <div
       className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8"
     >
@@ -38,7 +33,6 @@ const Welcome = () => {
   
           <Link
             to="/searchdisease"
-            // href = "../microservice/template/index.html"
             className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
           >
             Search About Disease

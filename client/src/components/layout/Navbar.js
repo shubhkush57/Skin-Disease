@@ -28,7 +28,7 @@ function Navbar({ auth: { isAuthenticated, loading }, logout }) {
       </Link>
 
       <a
-        href = "https://appoint-doc.vercel.app/apply-doctor"
+        href = "https://appoint-doc.vercel.app"
         className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
       >
         <i className='fas fa-sign-out-alt'></i>{' '}
