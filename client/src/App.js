@@ -7,6 +7,7 @@ import Register from "./components/auth/Register";
 
 import Landing from "./components/layout/Landing";
 import Alert from "./components/layout/Alert";
+import Search from "./components/dashboard/Search";
 import { loadUser } from "./actions/auth";
 // redux
 import { Provider } from "react-redux";
@@ -14,9 +15,10 @@ import store from "./store";
 import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./utils/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+import SearchDisease from "./components/layout/SearchDisease";
 import { connect } from "react-redux";
 import Footer from "./components/layout/Footer";
-
+import About from "./components/layout/About";
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
@@ -48,6 +50,9 @@ const App = ({ isAuthenticated }) => {
                   <Route element={<PrivateRoute />}>
                     {/**private routes we can start from here what we wanto  */}
                     <Route exact path='/dashboard' element={<Dashboard />} />
+                    <Route exact path = "/search" element = {<SearchDisease />} />
+                    <Route exact path = '/about' element = {<About />}/>
+                    <Route exact path="/searchdisease" element = {<Search />} />
                   </Route>
                 </Routes>
               </section>

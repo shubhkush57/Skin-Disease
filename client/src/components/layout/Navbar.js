@@ -20,6 +20,14 @@ function Navbar({ auth: { isAuthenticated, loading }, logout }) {
         <i className='fas fa-sign-out-alt'></i>{' '}
         <span className='hide-sm'>Logout</span>
       </Link>
+      <Link
+        to='/about'
+        className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+      >
+        <i className='fas fa-sign-out-alt'></i>{' '}
+        <span className='hide-sm'>Cure About Disease</span>
+      </Link>
+
     </div>
   );
 
@@ -137,6 +145,12 @@ function Navbar({ auth: { isAuthenticated, loading }, logout }) {
                 >
                   Dashboard
                 </Link>
+                {/* <Link
+                  to='/about'
+                  className='hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium'
+                >
+                  About
+                </Link> */}
 
                 {!loading && (
                   <Fragment>
