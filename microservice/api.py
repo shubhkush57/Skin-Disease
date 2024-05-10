@@ -16,7 +16,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 #loading the model
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-model = load_model(os.path.join(BASE_DIR , 'model.h5'))
+model = load_model(os.path.join(BASE_DIR , 'model_best.pth'))
 
 ALLOWED_EXT = set(['jpg' , 'jpeg' , 'png' , 'jfif'])
 def allowed_file(filename):
