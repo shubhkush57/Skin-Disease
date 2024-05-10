@@ -71,9 +71,8 @@ const handleUrlSearch = () => {
       <p class="mx-auto mt-4 max-w-md text-center text-gray-500">
        In this we use CNN model to predict the type of diseasae it is from given image.
       </p>
-
     <form action="#" class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
-      <p class="text-center text-lg font-medium">Sign in to your account</p>
+      {/* <p class="text-center text-lg font-medium">Sign in to your account</p> */}
       <div class="flex items-center justify-center w-full">
         <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
             <div class="flex flex-col items-center justify-center pt-5 pb-6">

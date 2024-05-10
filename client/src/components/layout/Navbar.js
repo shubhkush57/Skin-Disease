@@ -27,6 +27,14 @@ function Navbar({ auth: { isAuthenticated, loading }, logout }) {
         <span className='hide-sm'>Cure About Disease</span>
       </Link>
 
+      <a
+        href = "https://appoint-doc.vercel.app/apply-doctor"
+        className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+      >
+        <i className='fas fa-sign-out-alt'></i>{' '}
+        <span className='hide-sm'>Book Appointment</span>
+      </a>
+
       <Link
         to='#!'
         onClick={logout}
@@ -35,6 +43,7 @@ function Navbar({ auth: { isAuthenticated, loading }, logout }) {
         <i className='fas fa-sign-out-alt'></i>{' '}
         <span className='hide-sm'>Logout</span>
       </Link>
+
     </div>
   );
 

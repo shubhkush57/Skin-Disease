@@ -1,5 +1,5 @@
 import React from 'react'
-import infoImage from './images/ISIC_0024332.jpg';
+import infoImage from '../../img/basal.jpg';
 const Basal = () => {
   return (
     
