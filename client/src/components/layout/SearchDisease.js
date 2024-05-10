@@ -24,6 +24,7 @@ const handleUpload = async () => {
     const formData = new FormData();
     formData['file'] = file.name;
     const body = JSON.stringify(formData);
+    console.log("hwat is happending here");
     const response = await axios.post('http://127.0.0.1:8000/success', body, 
     config
     );
@@ -65,11 +66,10 @@ const handleUrlSearch = () => {
 
       <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-lg">
-      <h1 class="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">Get started today</h1>
+      <h1 class="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">Get started</h1>
 
       <p class="mx-auto mt-4 max-w-md text-center text-gray-500">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati sunt dolores deleniti
-        inventore quaerat mollitia?
+       In this we use CNN model to predict the type of diseasae it is from given image.
       </p>
 
     <form action="#" class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">

@@ -10,16 +10,15 @@ function Navbar({ auth: { isAuthenticated, loading }, logout }) {
 
   const authLinks = (
     <div  >
- 
-  
       <Link
-        to='#!'
-        onClick={logout}
+        to='/searchdisease'
         className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
       >
         <i className='fas fa-sign-out-alt'></i>{' '}
-        <span className='hide-sm'>Logout</span>
+        <span className='hide-sm'>Search</span>
       </Link>
+  
+      
       <Link
         to='/about'
         className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
@@ -28,6 +27,14 @@ function Navbar({ auth: { isAuthenticated, loading }, logout }) {
         <span className='hide-sm'>Cure About Disease</span>
       </Link>
 
+      <Link
+        to='#!'
+        onClick={logout}
+        className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+      >
+        <i className='fas fa-sign-out-alt'></i>{' '}
+        <span className='hide-sm'>Logout</span>
+      </Link>
     </div>
   );
 

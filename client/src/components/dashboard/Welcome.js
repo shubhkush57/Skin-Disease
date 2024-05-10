@@ -18,12 +18,12 @@ const Welcome = () => {
       className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8"
     >
       <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-        <h1 className="text-3xl font-extrabold sm:text-5xl text-white">
+        <h1 className="text-3xl font-extrabold sm:text-5xl text-blue-500">
           Your Health
-          <strong className="block font-extrabold text-rose-700"> Our Responsibility </strong>
+          <strong className="block font-extrabold text-blue-500"> Our Responsibility </strong>
         </h1>
   
-        <p className="mt-4 max-w-lg sm:text-xl/relaxed text-white">
+        <p className="mt-4 max-w-lg sm:text-xl/relaxed text-black">
           Keep your systems healthy effortlessly with our intuitive monitoring solution. Stay ahead of issues and ensure peak performance around the clock.
         </p>
   

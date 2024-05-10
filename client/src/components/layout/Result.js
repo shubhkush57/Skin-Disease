@@ -5,6 +5,8 @@ const Result = ({responseData}) => {
     // const handleImageChange = (newImagePath) => {
     //     setImagePath(newImagePath);
     //   };
+    console.log("hwersfsd");
+    console.log(responseData);
     const [imageSrc, setImageSrc] = useState(null);
     const img = responseData.img;
     const predictions = responseData.predications;
