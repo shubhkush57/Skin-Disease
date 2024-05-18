@@ -31,7 +31,7 @@ const Result = ({responseData}) => {
 
       <div className="header">
         <div className="flex justify-center">
-        <h3 className="header-text text-2xl font-bold text-center mt-8">Model Prediction</h3>
+        <h3 className="header-text text-2xl font-bold text-center mt-8">Image of Disease</h3>
         </div>
         <div className="flex justify-center">
           

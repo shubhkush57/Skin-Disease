@@ -22,11 +22,12 @@ function Search() {
       })
 
       const response = await fetch(`${url}?${params}`);
-
+      console.log(response);
       if(!response.ok){
         throw Error(response.statusText);
       }
       const json = await response.json();
+
       await setResults(json.query.search);
       await setSearchInfo(json.query.searchinfo);
       // console.log(results);
@@ -59,7 +60,8 @@ function Search() {
         return (
           <div key={i} className="bg-white dark:bg-gray-900 shadow-md rounded-md p-4">
             <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">{result.title}</h3>
-            <p className="text-gray-700 dark:text-gray-300">{result.snippet}</p>
+            {/* <p className="text-gray-700 dark:text-gray-300">{result.snippet}</p> */}
+            <p className="text-gray-700 dark:text-gray-300" dangerouslySetInnerHTML={{ __html: result.snippet }}></p>
             <a href={url} target="_blank" rel="noopener noreferrer" className="mt-2 block text-blue-500 hover:underline dark:text-blue-400">Read More</a>
           </div>
         )

@@ -25,6 +25,7 @@ const handleUpload = async () => {
     console.clear();
     const formData = new FormData();
     formData['file'] = file.name;
+    console.log(formData);
     const body = JSON.stringify(formData);
     console.log("hwat is happending here");
     const response = await axios.post('http://127.0.0.1:8000/success', body, 
@@ -34,6 +35,7 @@ const handleUpload = async () => {
     console.log("we are going to get the desired result: ")
     console.log('Response:', response.data);
     setPredication(response.data);
+    // console.clear();
    
   } catch (error) {
     console.error('Error:', error);
