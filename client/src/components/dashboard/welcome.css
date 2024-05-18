@@ -1,0 +1,34 @@
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 40px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -40px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+  
+  .fade-in-down {
+    animation: fadeInDown 1s ease-out forwards;
+  }
+  
+  .animation-delay {
+    animation-delay: 0.5s;
+  }
+  
