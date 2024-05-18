@@ -1,96 +1,107 @@
-
-from __future__ import division, print_function
-import sys
 import os
-import glob
-import re
+import uuid
+from flask import Flask
+from flask import jsonify
+import urllib
+from PIL import Image
+from flask_cors import CORS
+import json
 
-from pathlib import Path
-from io import BytesIO
-import base64
-import requests
+from tensorflow.keras.models import load_model
+from flask import Flask , render_template  , request , send_file
+from tensorflow.keras.preprocessing.image import load_img , img_to_array
+import numpy as np
 
-# Import fast.ai Library
-
-
-# Flask utils
-from flask import Flask, redirect, url_for, render_template, request,jsonify
-from PIL import Image as PILImage
-from collections.abc import Iterable
-from fastai import *
-from fastai.vision import *
-from fastai.vision.data import ImageDataBunch
-# Define a flask app
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
+#loading the model
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model = load_model(os.path.join(BASE_DIR , 'model.h5'))
 
-NAME_OF_FILE = 'model_best' # Name of your exported file
-PATH_TO_MODELS_DIR = Path('') # by default just use /models in root dir
-classes = ['Actinic keratoses', 'Basal cell carcinoma', 'Benign keratosis',
-           'Dermatofibroma', 'Melanocytic nevi', 'Melanoma', 'Vascular lesions']
+ALLOWED_EXT = set(['jpg' , 'jpeg' , 'png' , 'jfif'])
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXT
+classes = ['Actinic keratoses', 'Basal cell carcinoma', 'Benign keratosis','Dermatofibroma', 'Melanocytic nevi', 'Melanoma', 'Vascular lesions']
 
-def setup_model_pth(path_to_pth_file, learner_name_to_load, classes):
-    data = ImageDataBunch.single_from_classes(path_to_pth_file, classes, ds_tfms=get_transforms(), size=224).normalize(imagenet_stats)
-    learn = cnn_learner(data, models.densenet169, model_dir='models')
-    learn.load(learner_name_to_load, device=torch.device('cpu'))
-    return learn
+def predict(filename , model):
+    img = load_img(filename , target_size = (100 , 125))
+    img = img_to_array(img)
+    print("Shape of image before rshaping: ",img.shape )
+    img = img.reshape(1 , 100,125 ,3)
+    img = img.astype('float32')
+    img = img/255.0
+    result = model.predict(img)
+    dict_result = {}
+    for i in range(7):
+        dict_result[result[0][i]] = classes[i]
+    res = result[0]
+    res.sort()
+    res = res[::-1]
+    print(res);
+    prob = res[:7]
+    
+    prob_result = []
+    class_result = []
+    for i in range(7):
+        prob_result.append((prob[i]*100).round(2))
+        class_result.append(dict_result[prob[i]])
+    print(prob_result)
+    return class_result , prob_result
 
-learn = setup_model_pth(PATH_TO_MODELS_DIR, NAME_OF_FILE, classes)
+@app.route('/')
+def home():
+        return render_template("index.html")
 
-# def encode(img):
-#     img = (image2np(img.data) * 255).astype('uint8')
-#     pil_img = PILImage.fromarray(img)
-#     buff = BytesIO()
-#     pil_img.save(buff, format="JPEG")
-#     return base64.b64encode(buff.getvalue()).decode("utf-8")
-	
-# def model_predict(img):
-#     img = open_image(BytesIO(img))
-#     pred_class,pred_idx,outputs = learn.predict(img)
-#     formatted_outputs = ["{:.1f}%".format(value) for value in [x * 100 for x in torch.nn.functional.softmax(outputs, dim=0)]]
-#     pred_probs = sorted(
-#             zip(learn.data.classes, map(str, formatted_outputs)),
-#             key=lambda p: p[1],
-#             reverse=True
-#         )
-	
-#     img_data = encode(img)
-#     result = {"class":pred_class, "probs":pred_probs, "image":img_data}
-#     return render_template('result.html', result=result)
-   
+@app.route('/success' , methods = ['GET' , 'POST'])
+def success():
 
-@app.route('/', methods=['GET', "POST"])
-def index():
-    # Main page
-    # return render_template('index.html')
-    return "Hello word"
+    error = ''
+    target_img = os.path.join(os.getcwd() , 'static/images')
+    try:
+        data_string = request.data
+        data_dict = json.loads(data_string.decode('utf-8'))  # Convert bytes to string and then parse JSON
+        file = data_dict['file']  # Access the value associated with the key 'file'
 
-
-# @app.route('/upload', methods=["POST", "GET"])
-# def upload():
-#     if request.method == 'POST':
-#         # Get the file from post request
-#         img = request.files['file'].read()
-#         if img != None:
-#         # Make prediction
-#             preds = model_predict(img)
-#             return preds
-#     return 'OK'
-	
-# @app.route("/classify-url", methods=["POST", "GET"])
-# def classify_url():
-#     if request.method == 'POST':
-#         url = request.form["url"]
-#         if url != None:
-#             response = requests.get(url)
-#             preds = model_predict(response.content)
-#             return preds
-#     return 'OK'
+        print("hwerwe is file coming")
+        print(file)
+        if file :
+            img_path = os.path.join(target_img , file)
+            print("This is image_path"+ img_path)
+            img = file
+            class_result , prob_result = predict(img_path , model)
+            predictions = {
+                    "class1":class_result[0],
+                    "class2":class_result[1],
+                    "class3":class_result[2],
+                    "class4":class_result[3],
+                    "class5":class_result[4],
+                    "class6":class_result[5],
+                    "class7": class_result[6],
+                    "prob1": prob_result[0],
+                    "prob2": prob_result[1],
+                    "prob3": prob_result[2],
+                    "prob4": prob_result[3],
+                    "prob5": prob_result[4],
+                    "prob6": prob_result[5],
+                    "prob7": prob_result[6]
+            }
+            print('everything good till here')
+            response = {
+                'img': img,
+                'predications': predictions
+            }
+            return response
+        else:
+            error = "Please upload images of jpg , jpeg and png extension only"
+            err = {
+                'error': error
+            }
+            return jsonify(err);
+    except Exception as e:
+        return jsonify({'error': str(e)})
     
 
-if __name__ == '__main__':
-    # port = os.environ.get('PORT', 8008)
-    port = 8008
-
-    if "prepare" not in sys.argv:
-        # app.run(debug=False, host='0.0.0.0', port=port)
-        app.run(debug=False,port=port);
+if __name__ == "__main__":
+    port = 8000
+    app.run(debug = True,port= port)
