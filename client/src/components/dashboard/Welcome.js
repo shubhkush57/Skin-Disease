@@ -12,29 +12,43 @@ const Welcome = () => {
   >
     <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
       <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-        <h1 className="text-3xl font-extrabold sm:text-5xl text-blue-500 fade-in-down">
-          Your Health
-          <strong className="block font-extrabold text-blue-500">Our Responsibility</strong>
-        </h1>
-
-        <p className="mt-4 max-w-lg sm:text-xl/relaxed text-black fade-in-up animation-delay">
-          Keep your systems healthy effortlessly with our intuitive monitoring solution. Stay ahead of issues and ensure peak performance around the clock.
-        </p>
+        <div className="bg-white bg-opacity-70 p-8 rounded-lg backdrop-blur-lg fade-in">
+          <h1 className="text-3xl font-extrabold sm:text-5xl text-blue-500">
+            Your Health
+            <strong className="block font-extrabold text-blue-500">Our Responsibility</strong>
+          </h1>
+          <p className="mt-4 max-w-lg sm:text-xl text-black">
+            Keep your systems healthy effortlessly with our intuitive monitoring solution. Stay ahead of issues and ensure peak performance around the clock.
+          </p>
+        </div>
 
         <div className="mt-8 flex flex-wrap gap-4 text-center">
-          <Link
-            to="/search"
-            className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
-          >
-            Check Disease From Image
-          </Link>
+                    <Link
+              className="group relative inline-block text-sm font-medium text-white focus:outline-none focus:ring"
+              to="/search"
+            >
+              <span className="absolute inset-0 border border-red-600 group-active:border-red-500"></span>
+              <span
+                className="block border border-red-600 bg-red-600 px-12 py-3 transition-transform active:border-red-500 active:bg-red-500 group-hover:-translate-x-1 group-hover:-translate-y-1"
+              >
+                Check Disease From Image
+              </span>
+            </Link>
 
-          <Link
-            to="/searchdisease"
-            className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
-          >
-            Search About Disease
-          </Link>
+            {/* Border */}
+
+            <Link
+              className="group relative inline-block text-sm font-medium text-red-600 focus:outline-none focus:ring active:text-red-500"
+              to="/searchdisease"
+            >
+              <span className="absolute inset-0 border border-current"></span>
+              <span
+                className="block border border-current bg-white px-12 py-3 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1"
+              >
+                Search About Disease
+              </span>
+            </Link>
+          
         </div>
       </div>
     </div>

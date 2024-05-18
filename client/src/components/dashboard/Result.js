@@ -86,13 +86,7 @@ const Result = () => {
                
 
 <div class="grid grid-cols-2 gap-2">
-        {/* <div>
-            <img class="h-auto max-w-full rounded-lg" src={accu1}alt="" />
-        </div>
-        
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src={accu2} alt="" />
-        </div> */}
+    
     </div>
 
             </div>
