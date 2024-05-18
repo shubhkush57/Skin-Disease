@@ -12,7 +12,8 @@ const [file, setFile] = useState(null);
 const [error, setError] = useState('');
 // const [formData,setFormData] = useState(null);
 
-const handleUpload = async () => {
+const handleUpload = async (e) => {
+  e.preventDefault();
   try {
     if (!file) {
       setError('Please select a file');
@@ -20,7 +21,8 @@ const handleUpload = async () => {
     }
     const config = { headers: {  
       'Content-Type': 'application/form-data',
-      'Access-Control-Allow-Origin': '*'}
+      // 'Access-Control-Allow-Origin': '*'
+    }
     } ;
     console.clear();
     const formData = new FormData();
