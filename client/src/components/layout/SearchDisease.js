@@ -44,6 +44,7 @@ const handleFileChange = (event) => {
   console.clear();
   console.log("File uploaded successfully");
   console.log(event.target.files[0]);
+  setFile(null);
   setFile(event.target.files[0]);
 };
 const handleUrlSearch = () => {
