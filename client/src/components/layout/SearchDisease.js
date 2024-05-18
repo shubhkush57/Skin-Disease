@@ -10,6 +10,7 @@ const SearchComponent = () => {
 
 const [file, setFile] = useState(null);
 const [error, setError] = useState('');
+// const [formData,setFormData] = useState(null);
 
 const handleUpload = async () => {
   try {
@@ -18,7 +19,7 @@ const handleUpload = async () => {
       return;
     }
     const config = { headers: {  
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/form-data',
       'Access-Control-Allow-Origin': '*'}
     } ;
     console.clear();
@@ -40,6 +41,9 @@ const handleUpload = async () => {
 };
 
 const handleFileChange = (event) => {
+  console.clear();
+  console.log("File uploaded successfully");
+  console.log(event.target.files[0]);
   setFile(event.target.files[0]);
 };
 const handleUrlSearch = () => {
@@ -65,11 +69,11 @@ const handleUrlSearch = () => {
 
 
 
-      <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-lg">
-      <h1 class="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">Get started</h1>
+      <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-lg">
+      <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">Get started</h1>
 
-      <p class="mx-auto mt-4 max-w-md text-center text-gray-500">
+      <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
        In this we use CNN model to predict the type of diseasae it is from given image.
       </p>
     <form action="#" class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">

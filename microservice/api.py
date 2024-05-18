@@ -13,7 +13,7 @@ from tensorflow.keras.preprocessing.image import load_img , img_to_array
 import numpy as np
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app)
 #loading the model
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 model = load_model(os.path.join(BASE_DIR , 'model.h5'))
