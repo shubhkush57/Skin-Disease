@@ -89,22 +89,40 @@ function Search() {
       </header>
 
       <div className="container mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="space-y-6">
           {results.map((result, i) => {
             const url = `https://en.wikipedia.org/?curid=${result.pageid}`;
             return (
-              <div key={i} className="bg-white dark:bg-gray-900 shadow-md rounded-md p-4">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">{result.title}</h3>
-                <p className="text-gray-700 dark:text-gray-300" dangerouslySetInnerHTML={{ __html: result.snippet }}></p>
+              <div key={i} className="bg-white dark:bg-gray-900 shadow-md rounded-md p-4 flex space-x-4 items-start transition duration-500 ease-in-out transform hover:scale-105">
                 {images[i] && (
-                  <div className="w-full h-64 flex justify-center items-center">
-                    <img src={images[i]} alt={result.title} className="object-contain h-full" />
+                  <div className="flex-none">
+                    <img src={images[i]} alt={result.title} className="w-32 h-32 object-cover rounded-md" />
                   </div>
                 )}
-                {descriptions[i] && (
-                  <p className="mt-2 text-gray-700 dark:text-gray-300">{descriptions[i]}</p>
-                )}
-                <a href={url} target="_blank" rel="noopener noreferrer" className="mt-2 block text-blue-500 hover:underline dark:text-blue-400">Read More</a>
+                <div className="flex-auto">
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">{result.title}</h3>
+                  <p className="text-gray-700 dark:text-gray-300 mb-2" dangerouslySetInnerHTML={{ __html: result.snippet }}></p>
+                  {descriptions[i] && (
+                    <p className="text-gray-700 dark:text-gray-300 mb-2">{descriptions[i]}</p>
+                  )}
+                  <a
+                  className="group relative inline-block overflow-hidden border border-indigo-600 px-8 py-3 focus:outline-none focus:ring"
+                  href={url}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <span
+                    className="absolute inset-y-0 left-0 w-[2px] bg-indigo-600 transition-all group-hover:w-full group-active:bg-indigo-500"
+                  ></span>
+
+                  <span
+                    className="relative text-sm font-medium text-indigo-600 transition-colors group-hover:text-white"
+                  >
+                    Read More
+                  </span>
+                </a>
+                  {/* <a href={url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline dark:text-blue-400">Read More</a> */}
+                </div>
               </div>
             );
           })}
