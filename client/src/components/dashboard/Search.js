@@ -1,19 +1,18 @@
 import { useState } from "react";
 import React from "react";
-import axios from "axios";
 
 function Search() {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
-  const [searchInfo, setSearchInfo] = useState({});
+  const [searchInfo, setSearchInfo] = useState([]);
   const [images, setImages] = useState([]);
+  const [descriptions, setDescriptions] = useState([]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
     if (search === '') return;
 
     const wikipediaUrl = "https://en.wikipedia.org/w/api.php";
-    const unsplashUrl = "https://api.unsplash.com/search/photos";
 
     const wikipediaParams = new URLSearchParams({
       action: 'query',
@@ -24,26 +23,48 @@ function Search() {
       origin: "*"
     });
 
-    const unsplashParams = {
-      query: search,
-      per_page: 10,
-      client_id: "3Tc7b2Jh72QOLaqgNhXg0AB4vJZ0gj4m8nq5jxGl5ss"
-    };
-
     try {
-      const [wikipediaResponse, unsplashResponse] = await Promise.all([
-        fetch(`${wikipediaUrl}?${wikipediaParams}`),
-        axios.get(unsplashUrl, { params: unsplashParams })
-      ]);
+      const response = await fetch(`${wikipediaUrl}?${wikipediaParams}`);
 
-      if (!wikipediaResponse.ok) {
-        throw new Error(wikipediaResponse.statusText);
+      if (!response.ok) {
+        throw new Error(response.statusText);
       }
 
-      const wikipediaJson = await wikipediaResponse.json();
-      setResults(wikipediaJson.query.search);
-      setSearchInfo(wikipediaJson.query.searchinfo);
-      setImages(unsplashResponse.data.results);
+      const json = await response.json();
+      setResults(json.query.search);
+      setSearchInfo(json.query.searchinfo);
+
+      // Fetch images and additional content for each search result
+      const contentRequests = json.query.search.map(async (result) => {
+        const imageParams = new URLSearchParams({
+          action: 'query',
+          titles: result.title,
+          prop: 'pageimages|extracts',
+          format: 'json',
+          pithumbsize: 300,
+          origin: '*',
+          exintro: true,
+          explaintext: true
+        });
+
+        const contentResponse = await fetch(`${wikipediaUrl}?${imageParams}`);
+        const contentJson = await contentResponse.json();
+        const pages = contentJson.query.pages;
+        const page = Object.values(pages)[0];
+        
+        return {
+          image: page.thumbnail ? page.thumbnail.source : null,
+          description: page.extract
+        };
+      });
+
+      const fetchedContents = await Promise.all(contentRequests);
+      const fetchedImages = fetchedContents.map(content => content.image);
+      const fetchedDescriptions = fetchedContents.map(content => content.description);
+
+      setImages(fetchedImages);
+      setDescriptions(fetchedDescriptions);
+      
     } catch (error) {
       console.error("Error fetching data: ", error);
     }
@@ -75,21 +96,18 @@ function Search() {
               <div key={i} className="bg-white dark:bg-gray-900 shadow-md rounded-md p-4">
                 <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">{result.title}</h3>
                 <p className="text-gray-700 dark:text-gray-300" dangerouslySetInnerHTML={{ __html: result.snippet }}></p>
+                {images[i] && (
+                  <div className="w-full h-64 flex justify-center items-center">
+                    <img src={images[i]} alt={result.title} className="object-contain h-full" />
+                  </div>
+                )}
+                {descriptions[i] && (
+                  <p className="mt-2 text-gray-700 dark:text-gray-300">{descriptions[i]}</p>
+                )}
                 <a href={url} target="_blank" rel="noopener noreferrer" className="mt-2 block text-blue-500 hover:underline dark:text-blue-400">Read More</a>
               </div>
             );
           })}
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 py-6">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Related Images</h2>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {images.map((image, i) => (
-            <div key={i} className="bg-white dark:bg-gray-900 shadow-md rounded-md p-4">
-              <img src={image.urls.small} alt={image.alt_description} className="w-full h-auto rounded-md" />
-            </div>
-          ))}
         </div>
       </div>
     </div>
