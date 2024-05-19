@@ -96,7 +96,7 @@ function Search() {
               <div key={i} className="bg-white dark:bg-gray-900 shadow-md rounded-md p-4 flex space-x-4 items-start transition duration-500 ease-in-out transform hover:scale-105">
                 {images[i] && (
                   <div className="flex-none">
-                    <img src={images[i]} alt={result.title} className="w-32 h-32 object-cover rounded-md" />
+                    <img src={images[i]} alt={result.title} className="w-32 h-32 object-cover rounded-md transition-transform duration-300 transform hover:scale-110" />
                   </div>
                 )}
                 <div className="flex-auto">
