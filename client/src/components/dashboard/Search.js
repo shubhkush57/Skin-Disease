@@ -101,9 +101,10 @@ function Search() {
                 )}
                 <div className="flex-auto">
                   <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">{result.title}</h3>
-                  <p className="text-gray-700 dark:text-gray-300 mb-2" dangerouslySetInnerHTML={{ __html: result.snippet }}></p>
+                  {/* <p className="text-gray-700 dark:text-gray-300 mb-2" dangerouslySetInnerHTML={{ __html: result.snippet }}></p> */}
                   {descriptions[i] && (
-                    <p className="text-gray-700 dark:text-gray-300 mb-2">{descriptions[i]}</p>
+                    <p className="mb-3 text-gray-500 dark:text-gray-400 first-line:uppercase first-line:tracking-widest first-letter:text-7xl first-letter:font-bold first-letter:text-gray-900 dark:first-letter:text-gray-100 first-letter:me-3 first-letter:float-start">{descriptions[i]}</p>
+                    // <p className="text-gray-700 dark:text-gray-300 mb-2">{descriptions[i]}</p>
                   )}
                   <a
                   className="group relative inline-block overflow-hidden border border-indigo-600 px-8 py-3 focus:outline-none focus:ring"
