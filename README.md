@@ -54,9 +54,8 @@ To make the skin disease image classifier easily accessible to users, it was int
 ![Screenshot 2024-05-18 124339](https://github.com/shubhkush57/Skin-Disease/assets/76884219/dc180081-3d8f-4043-a7e0-edf152c1dbfd)
 
 ## For More Resouces
-
-ppt:
-Report:
+[ppt Link](https://www.canva.com/design/DAFxc5ElCFM/eMBKkvK8xNHyxC6LqH6UWQ/edit?utm_content=DAFxc5ElCFM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+[Project Report](https://drive.google.com/file/d/1Pm7I9IKi3IqVJq1NB6ZO6bzw-vP6mTUY/view)
 
 ## Proposed Features
 - Utilized the HAM10000 dataset as a cornerstone for the project
@@ -64,9 +63,6 @@ Report:
 – Incorporated features for seamless sign-up, login, image upload, and effortless patient profile creation
 – Implemented an advanced disease and medication search functionality using the Wiki API
 – Enabled users to schedule appointments with their preferred doctors effortlessly
-
-
-
 
 ## Tech Stack
 **Client:** React.js, Redux, Tailwind Css
