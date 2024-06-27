@@ -12,10 +12,10 @@
 ## Overview
 Skin diseases can have a significant impact on a person's health and wellbeing. Early diagnosis and treatment are essential for preventing complications, scarring, disfigurement, and even life-threatening conditions such as skin cancer. This project aims to develop an image classifier that can accurately identify common skin diseases in images uploaded by users and also gives them functionality for searching disease.
 
-# Data Source
+## Data Source
 We specifically employed the HAM10000 ("Human Against Machine with 10000 training images") dataset as a cornerstone in our project. This dataset, released by us, played a pivotal role in augmenting the academic machine learning landscape within dermatology.
 
-# Focus Diseases
+## Focus Diseases
 The dermatoscopic images are sourced from various populations and captured and stored using different modalities. The resulting dataset comprises 10,015 dermatoscopic images, categorized into seven distinct classes of skin cancer listed below:
 
 
@@ -27,26 +27,28 @@ The dermatoscopic images are sourced from various populations and captured and s
 -	Vascular lesions
 -	Dermatofibroma
 
+## Data Preprocessing
+## Model Architecture
+## Model Evaluation
+## Web Application
+
+## For More Resouces
+ppt:
+Report:
 
 ## Proposed Features
-- Login/SignUp
-- Dashboard with
-- Options to shuffle, repeat queue and repeat current song
-- User can shuffle the playing queue and add or remove a song in it
-- Artist  profile tageed to song they sung
-- User can follow or unfollow an Artist
-- Searh the songs by thier title, artists or genre
-- Song History of a User
-- User can like a song
-- User can make private playlist where they can add songs
 
+- Utilized the HAM10000 dataset as a cornerstone for the project
+– Leveraged CNNs to significantly improve the accuracy (87%) and speed of image-based diagnoses
+– Incorporated features for seamless sign-up, login, image upload, and effortless patient profile creation
+– Implemented an advanced disease and medication search functionality using the Wiki API
+– Enabled users to schedule appointments with their preferred doctors effortlessly
 
-- user can share playlist with other users.
-- Shows lyrics of the song.
 ---
 
 
 ## Tech Stack
 **Client:** React.js, Redux, Tailwind Css
-**Server:** Node.js, Express.js
+**Server:** Node.js,Flask, Express.js
 **DataBase:** MongoDB Atlas, Mongoose
+**Tools:** TensorFlow, Jupyter Notebook, Keras, Gradio
