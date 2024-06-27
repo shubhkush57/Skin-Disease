@@ -1,4 +1,3 @@
-![Screenshot 2024-05-20 120937](https://github.com/shubhkush57/Skin-Disease/assets/76884219/82c06f5e-b102-476f-af7e-98627d7db00b)
 # Skin Disease Detector:
 ## Skin Disease Image Classifier for Accurate and Accessible Diagnosis
 ![image](https://github.com/shubhkush57/Skin-Disease/assets/76884219/c440e82b-c187-4b97-84df-82b41d84d758)
