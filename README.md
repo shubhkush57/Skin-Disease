@@ -19,13 +19,13 @@ We specifically employed the HAM10000 ("Human Against Machine with 10000 trainin
 The dermatoscopic images are sourced from various populations and captured and stored using different modalities. The resulting dataset comprises 10,015 dermatoscopic images, categorized into seven distinct classes of skin cancer listed below:
 
 
-•	Melanoma
-•	Melanocytic nevi
-•	Benign keratosis-like lesions
-•	Basal cell carcinoma
-•	Actinic keratoses
-•	Vascular lesions
-•	Dermatofibroma
+-	Melanoma
+-	Melanocytic nevi
+-	Benign keratosis-like lesions
+-	Basal cell carcinoma
+-	Actinic keratoses
+-	Vascular lesions
+-	Dermatofibroma
 
 
 ## Proposed Features
