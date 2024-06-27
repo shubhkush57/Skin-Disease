@@ -49,9 +49,9 @@ The model's accuracy, indicating the proportion of correctly classified skin dis
 ## Web Application
 To make the skin disease image classifier easily accessible to users, it was integrated into a user-friendly web application. Users can upload images of their skin diseases, and the application provides an accurate diagnosis of the skin condition.The Dashboard offers detailed information on skin diseases, appointment booking with dermatologists, image-based disease diagnosis, and a comprehensive search function for any disease. It combines advanced technology and user-friendly features to facilitate effective skin health	management	and	professional	medical	consultation. 
 ![Screenshot 2024-05-19 005428](https://github.com/shubhkush57/Skin-Disease/assets/76884219/5f26044c-ef18-4d32-8dbf-b86b822a6bcb)
-
 ![Screenshot 2024-05-18 124006](https://github.com/shubhkush57/Skin-Disease/assets/76884219/f0900c20-6b8a-44d6-9278-62cadd019571)
 ![Screenshot 2024-05-19 013138](https://github.com/shubhkush57/Skin-Disease/assets/76884219/e77cb9e3-d381-4b13-8b48-36e28471118d)
+![Screenshot 2024-05-18 124339](https://github.com/shubhkush57/Skin-Disease/assets/76884219/dc180081-3d8f-4043-a7e0-edf152c1dbfd)
 
 ## For More Resouces
 
@@ -59,14 +59,13 @@ ppt:
 Report:
 
 ## Proposed Features
-
 - Utilized the HAM10000 dataset as a cornerstone for the project
 – Leveraged CNNs to significantly improve the accuracy (87%) and speed of image-based diagnoses
 – Incorporated features for seamless sign-up, login, image upload, and effortless patient profile creation
 – Implemented an advanced disease and medication search functionality using the Wiki API
 – Enabled users to schedule appointments with their preferred doctors effortlessly
 
----
+
 
 
 ## Tech Stack
