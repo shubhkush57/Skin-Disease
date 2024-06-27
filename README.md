@@ -1,4 +1,4 @@
-
+![Screenshot 2024-05-20 120937](https://github.com/shubhkush57/Skin-Disease/assets/76884219/82c06f5e-b102-476f-af7e-98627d7db00b)
 # Skin Disease Detector:
 ## Skin Disease Image Classifier for Accurate and Accessible Diagnosis
 ![image](https://github.com/shubhkush57/Skin-Disease/assets/76884219/c440e82b-c187-4b97-84df-82b41d84d758)
@@ -52,6 +52,8 @@ To make the skin disease image classifier easily accessible to users, it was int
 ![Screenshot 2024-05-18 124006](https://github.com/shubhkush57/Skin-Disease/assets/76884219/f0900c20-6b8a-44d6-9278-62cadd019571)
 ![Screenshot 2024-05-19 013138](https://github.com/shubhkush57/Skin-Disease/assets/76884219/e77cb9e3-d381-4b13-8b48-36e28471118d)
 ![Screenshot 2024-05-18 124339](https://github.com/shubhkush57/Skin-Disease/assets/76884219/dc180081-3d8f-4043-a7e0-edf152c1dbfd)
+![Screenshot 2024-05-20 120937](https://github.com/shubhkush57/Skin-Disease/assets/76884219/7a13d007-bb24-4ff6-be7a-2ad641bd7c0d)
+
 
 ## For More Resouces
 [ppt Link](https://www.canva.com/design/DAFxc5ElCFM/eMBKkvK8xNHyxC6LqH6UWQ/edit?utm_content=DAFxc5ElCFM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
